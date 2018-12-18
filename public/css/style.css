@@ -8,6 +8,17 @@
     /*width: 100%;*/
 /*}*/
 
+.square-12 {
+    width: 12px;
+    height: 12px;
+    font-size: 12px;
+}
+
+.strike {
+    text-decoration: line-through;
+    color: #808080;
+}
+
 .blue-sea-gradient {
     background: #009bff;
     background: -webkit-linear-gradient(left, #0072ff, #00c6ff);
@@ -125,8 +136,8 @@ md-card#avatar-user {
 
 /** Content **/
 #content {
-    height: 1000px;
-    padding: 2%;
+    /*height: 1000px;*/
+    padding: 1%;
 }
 
 /**

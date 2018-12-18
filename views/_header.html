@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/angular_material/1.1.8/angular-material.min.css">
     <link href="//fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- Angular Material requires Angular.js Libraries -->
+    <script src="public/js/plugins/moment.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-animate.min.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-aria.min.js"></script>
@@ -62,7 +63,8 @@
                             </div>
                         </md-card-title-media>
                         <md-card-title-text>
-                            <span id="user-email" class="md-headline">{{ currentUser.username }}</span>
+                            <span id="user-name" class="md-headline">{{ currentUser.username }}</span>
+                            <span id="user-email" class="md-subhead description">{{ currentUser.email }}</span>
                             <span id="user-phone" class="md-subhead description">{{ currentUser.phone }}</span>
                         </md-card-title-text>
                     </md-card-title>

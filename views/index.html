@@ -1,5 +1,52 @@
 <!-- Content -->
-<div id="content" class="">
+<div id="content" layout="columns" flex layout-wrap layout-align="space-center" class="">
+    <!-- Checklist -->
+    <div flex="100" flex-md="50" flex-gt-md="50" ng-controller="CheckListCtrl as ctrl">
+        <md-card class="md-whiteframe-2dp">
+            <md-card-title layout="row" layout-align="center center">
+                <md-card-title-text>
+                    <span class="md-headline">Check List</span>
+                </md-card-title-text>
+                <div class="">
+                    <md-datepicker ng-model="ctrl.myDate" ng-change="ctrl.onDateChanged()"
+                                   md-placeholder="Enter date"></md-datepicker>
+                </div>
+            </md-card-title>
+            <md-card-content>
+                <md-list>
+                    <md-subheader class="md-no-sticky">Work until the end <span>Date: {{ctrl.myDate | date:shortDate}}</span></md-subheader>
+                    <md-list-item ng-class="{strike: todo.isDone}" ng-repeat="todo in todos">
+                        <p> {{ todo.name }} </p>
+                        <md-checkbox class="md-secondary" ng-model="todo.isDone"></md-checkbox>
+                    </md-list-item>
+
+                    <md-divider></md-divider>
+                </md-list>
+            </md-card-content>
+            <md-card-actions layout="row" layout-align="end center">
+                <form action="" flex="100"
+                      layout="row"
+                      layout-align="space-around"
+                      layout-xs="column"
+                      layout-align-xs="center stretch">
+                    <div flex="100" flex-md="70"  flex-gt-md="70" layout="row" layout-wrap>
+                        <md-input-container flex="100" style="margin: 0;">
+                            <input ng-model="formData.todoInput" type="text" aria-label="todoInput">
+                        </md-input-container>
+                    </div>
+                    <div  flex="100" flex-md="20"  flex-gt-md="20">
+                        <md-button class="md-raised md-primary">
+                            <md-icon class="material-icons md-light"
+                                     style="font-size: 15px;line-height: 22px;"
+                                     ng-bind="'extension'"></md-icon>
+                            <span>Thêm</span>
+                        </md-button>
+                    </div>
+                </form>
+            </md-card-actions>
+        </md-card>
+    </div>
+    <!-- ./ Checklist -->
 
 </div>
 <!-- ./ Content -->
