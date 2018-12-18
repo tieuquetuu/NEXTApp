@@ -1,0 +1,80 @@
+<md-content id="content" ng-controller="ProfileCtrl">
+    <div layout="row" layout-wrap>
+        <div flex="100" flex-md="66" flex-gt-md="66">
+            <md-card id="userInfoBoxLeft">
+                <md-card-content>
+                    <div flex>
+                        <form id="editProfile" name="editProfile" ng-submit="updateUser($event)" action="">
+
+                            <md-input-container class="md-block">
+                                <label>User Name</label>
+                                <md-icon ng-bind="'person'"></md-icon>
+                                <input required type="text" name="userName" ng-value="userProfile.username" ng-model="profileFormData.username" minlength="6" maxlength="32">
+                                <div ng-messages="editProfile.userName.$error">
+                                    <div ng-message-exp="['required', 'minlength', 'maxlength']">
+                                        Username must be between 6 and 32 characters long.
+                                    </div>
+                                </div>
+                            </md-input-container>
+
+                            <md-input-container class="md-block">
+                                <label>Phone</label>
+                                <md-icon class="" ng-bind="'phone'"></md-icon>
+                                <input required number name="userPhone" ng-value="userProfile.phone" ng-model="profileFormData.phone" minlength="10" maxlength="15">
+                                <div ng-messages="editProfile.userPhone.$error">
+                                    <div ng-message-exp="['required', 'minlength', 'maxlength','number']">
+                                        Phone does not exist
+                                    </div>
+                                </div>
+                            </md-input-container>
+
+                            <md-input-container class="md-block">
+                                <label>Password</label>
+                                <md-icon class="" ng-bind="'lock'"></md-icon>
+                                <input required type="password" name="userPassword" disabled ng-model="profileFormData.password" minlength="6" maxlength="64">
+                                <div ng-messages="editProfile.userPassword.$error">
+                                    <div ng-message-exp="['required', 'minlength', 'maxlength']">
+                                        Password is not correct.
+                                    </div>
+                                </div>
+                            </md-input-container>
+
+                            <md-input-container class="md-block">
+                                <label>Email</label>
+                                <md-icon class="" ng-bind="'email'"></md-icon>
+                                <input required type="email" name="userEmail" ng-value="userProfile.email" ng-model="profileFormData.email"
+                                       minlength="10" maxlength="100" ng-pattern="/^.+@.+\..+$/"  />
+
+                                <div ng-messages="editProfile.userEmail.$error" role="alert">
+                                    <div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">
+                                        Your email must be between 10 and 100 characters long and look like an e-mail address.
+                                    </div>
+                                </div>
+                            </md-input-container>
+
+                            <div layout="row" layout-sm="column" layout-align="center center" layout-wrap>
+                                <md-button type="submit" class="md-raised md-primary">Update <md-icon ng-bind="'arrow_right_alt'"></md-icon></md-button>
+                            </div>
+                        </form>
+                    </div>
+                </md-card-content>
+            </md-card>
+        </div>
+        <div flex="100" flex-md="33" flex-gt-md="33">
+            <md-card id="userInfoBoxRight">
+                <md-card-title layout="row" layout-wrap>
+                    <md-card-title-media flex="100">
+                        <div class="box-avatar md-media-xl card-media">
+                            <img ng-src="{{ avatarUrl }}" class="md-card-image md-whiteframe-4dp" alt="avatar">
+                        </div>
+                    </md-card-title-media>
+                    <md-card-title-text flex="100" layout-padding>
+                        <span class="md-headline">{{ currentUser.username }}</span>
+                        <span class="md-subhead">{{ currentUser.phone }}</span>
+                        <span class="md-subhead">{{ currentUser.email }}</span>
+                    </md-card-title-text>
+                </md-card-title>
+            </md-card>
+        </div>
+    </div>
+</md-content>
