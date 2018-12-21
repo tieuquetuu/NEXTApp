@@ -175,7 +175,8 @@ appJs.loadDataOnPage = function(){
 
     // Logic for admin details page
     if (bodyClassStr.indexOf("UserLoggedIn") > -1) {
-        console.log("You loggin");
+        // Logic for account settings page
+
     } else {
         window.location = '/login';
     }

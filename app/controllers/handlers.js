@@ -162,7 +162,30 @@ handlers.profile = function(data, callback) {
     }
 };
 
+// Workflow
+handlers.workflow = function(data, callback) {
+    if (data.method == 'get') {
+        // Prepare data for interpolation
+        var templateData = {
+            'head.title' : 'Create a automation marketing plain',
+            'head.description' : 'Create a automation marketing plain is easy and only takes a few seconds.',
+            'body.class' : 'pageSmsWorkflow'
+        };
 
+        // Read in a template as a string
+        helpers.getTemplate('sms/workflow',templateData,function(err,accountSignUpString){
+            if(!err && accountSignUpString){
+                // Add them all together
+                var fullString = accountSignUpString;
+                callback(200,fullString, 'html');
+            } else {
+                callback('Could not find the accountSignUp template');
+            }
+        });
+    } else {
+        callback(405, undefined, 'html');
+    }
+};
 
 // Export the handlers
 module.exports = handlers;
